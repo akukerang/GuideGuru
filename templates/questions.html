@@ -4,25 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuideGuru</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+
         <div class="dropdown-section">
-            <label for="places">Choose a type of place:</label>
-            <select id="places">
-                <option value="restaurants">Restaurants</option>
-                <option value="parks">Parks</option>
-                <option value="beaches">Beaches</option>
-                <option value="movies">Movies</option>
-                <option value="concerts">Concerts</option>
-                <option value="sporting">Sporting events</option>
-                <option value="museums">Museums</option>
-                <option value="attractions">Attractions and amusement</option>
+            <label for="occassian">Occassion:</label>
+            <select id="occassian">
+                <option value="romantic">Romantic</option>
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+                <option value="solo">Solo</option>
             </select>
+        </div>
+        <div class="input-section">
+            <label for="interests">Interests:</lavel>
+            <input type="text" id="interests">
         </div>
 
         <div class="dropdown-section">
@@ -41,6 +42,11 @@
             <label for="budget">Budget:</lavel>
             <input type="number" id="budget">
         </div>
+        <div class="input-section">
+            <label for="radius">Radius:</lavel>
+            <input type="number" id="radius">
+        </div>
+        <button>Prev</button>
         <button>Next</button>
     </div>
 </body>

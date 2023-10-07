@@ -42,11 +42,7 @@
                 updateMap(locationInput.value, map, marker);
             });
 
-            // Additional event listener for the "Next" button
-            var nextButton = document.querySelector('.next');
-            nextButton.addEventListener('click', function () {
-                // Add logic for the "Next" button if needed
-            });
+
         }
 
         function updateMarkerPosition(latLng) {
@@ -68,6 +64,15 @@
                 }
             });
         }
+
+        function nextPage() {
+            var latitude = document.getElementById('latitude').value;
+            var longitude = document.getElementById('longitude').value;
+            var nextPageUrl = 'questions?latitude=' + latitude + '&longitude=' + longitude;
+            window.location.href = nextPageUrl;
+        };
+
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
 </head>
@@ -86,7 +91,7 @@
         </form>
         <input type="hidden" id="latitude" name="latitude">
         <input type="hidden" id="longitude" name="longitude">
-        <button class="next">Next</button>
+        <button class="next" onclick="nextPage()">Next</button>
 
     </div>
 </body>

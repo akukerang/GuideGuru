@@ -1,2 +1,2 @@
-API_KEY = "google map api key"
-gptapi_key = "gpt api key"
+API_KEY = ""
+gptapi_key = ""

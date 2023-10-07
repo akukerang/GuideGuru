@@ -44,7 +44,8 @@ def locations():
                     'formatted_address': place.get('formatted_address'),
                     'price_level': place.get('price_level', None),
                     'type': place.get('types', None),
-                    'location':place.get('geometry')['location']
+                    'location':place.get('geometry')['location'],
+                    'photo':place.get('photos')[0]['photo_reference']
                 }
                 locationList.append(operational_place)
     markers = ""

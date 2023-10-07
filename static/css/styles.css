@@ -90,40 +90,9 @@ select, input {
     text-align: center;
 }
 
-.location-container {
-    width: 80%;
-    border-radius: 30px;
-    background-color: white;
-    display: flex;
-    margin: 20px;
-    flex-direction: row;
-    height: 250px;
-}
-
-.location-details {
-    flex: 1;
-    margin: 20px;
-    width: 80%; /* Set it to at least 70% */
-}
-
-.location-details h1 {
+.location-details > h1 {
     font-size: 20px;
 }
-
-.location-box {
-    transform: scale(0.3); /* Make the checkbox half the size */
-    flex: 1; /* Adjust the flex value to control the space taken by the checkbox */
-    margin: 0;
-
-}
-
-.results-container {
-    width: 40%;
-    overflow-y: scroll;
-    max-height: 100vh;
-    flex: 2;
-}
-
 
 
 .results-page {
@@ -142,3 +111,84 @@ select, input {
     border-radius: 10px; /* Optional: Add border-radius for rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
 }
+
+.results-container {
+    width: 40%;
+    overflow-y: scroll;
+    max-height: 100vh;
+    flex: 2;
+    /* Set scrollbar styles */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #888888 #f1f1f1; /* For Firefox */
+}
+
+/* For Webkit browsers like Chrome and Safari */
+.results-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.results-container::-webkit-scrollbar-thumb {
+    background-color: #888888;
+}
+
+.results-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* For IE and Edge */
+.results-container {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.results-container::-ms-scrollbar-thumb {
+    background-color: #888888;
+}
+
+.results-container {
+    width: 60%; /* Adjusted width to leave some space on the right */
+    overflow-y: scroll;
+    max-height: 100vh;
+    flex: 2;
+    margin: 20px; /* Set margin to 20px */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.location-container {
+    width: 80%;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    height: 250px;
+    align-items: center;
+    justify-content: space-between;
+    border-left-width: 10px; /* Left border width */
+    border-right-width: 10px; /* Right border width */
+    transition: all 0.3s ease; /* Add transition for a smooth effect */
+}
+
+.location-container:hover {
+    transform: scale(1.05); /* Scale up the container on hover */
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5); /* Add a subtle shadow on hover */
+}
+
+.location-details {
+    flex: 1;
+    margin: 20px;
+    width: 80%;
+}
+
+.location-details h1 {
+    font-size: 20px;
+}
+
+.location-box {
+    transform: scale(1); /* Reset the scale to 1 for normal size */
+    width: 30px; /* Set a specific width */
+    height: 30px; /* Set a specific height */
+    margin: 0 10px 0 0;
+}
+

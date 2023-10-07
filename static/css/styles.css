@@ -103,10 +103,9 @@ select, input {
 .map2-container {
     margin-top: 30px;
     margin-right: 20px;
-    height: 40%;
     width: 50%;
     background-color: white;
-    height: 400px; /* Set the height of the map container */
+    height: 600px;
     border: 1px solid #ccc; /* Add a border around the map container */
     border-radius: 10px; /* Optional: Add border-radius for rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
@@ -161,6 +160,7 @@ select, input {
     background-color: white;
     display: flex;
     margin-bottom: 20px;
+    margin-top: 20px;
     flex-direction: row;
     height: 250px;
     align-items: center;

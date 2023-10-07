@@ -44,11 +44,21 @@ def locations():
                     'formatted_address': place.get('formatted_address'),
                     'price_level': place.get('price_level', None),
                     'type': place.get('types', None),
-                    'longitude':place.get('longitude'),
-                    'latitude' : place.get('latitude')
+                    'location':place.get('geometry')['location']
                 }
                 locationList.append(operational_place)
-    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google)
+    markers = ""
+    for i in locationList:
+        markers+= f"""
+                var marker = new google.maps.Marker({{
+                    position: {i['location']},
+                    map: null,
+                    title: "{i['name']}"
+                }});
+                markers.push(marker);
+            """
+
+    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google, markers=markers)
 
 @app.route('/results')
 def results():

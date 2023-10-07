@@ -121,6 +121,9 @@ h1 {
     font-size: 20px;
 }
 
+.location-details h1 {
+    color: black;
+}
 
 .results-page {
     display: flex;

@@ -5,6 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GuideGuru</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script>
+            var longitude = sessionStorage.getItem("longitude");
+            var latitude = sessionStorage.getItem("latitude");
+            function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: {lng}, lng: {lat} },
+                zoom: 8,
+                streetViewControl: false,
+                mapTypeControl: false
+            });
+
+        }
+        </script>
     </head>
     <body>
         <div class ="results-page">

@@ -68,7 +68,9 @@
         function nextPage() {
             var latitude = document.getElementById('latitude').value;
             var longitude = document.getElementById('longitude').value;
-            var nextPageUrl = 'questions?latitude=' + latitude + '&longitude=' + longitude;
+            var nextPageUrl = 'questions';
+            sessionStorage.setItem('latitude', latitude);
+            sessionStorage.setItem('longitude', longitude);
             window.location.href = nextPageUrl;
         };
 

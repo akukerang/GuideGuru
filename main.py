@@ -50,8 +50,8 @@ def locations():
 
 @app.route('/results')
 def results():
-    return render_template('locations.html', locationList = locationList)
-
+    return render_template('results.html')
+    
 
 app.run()
 

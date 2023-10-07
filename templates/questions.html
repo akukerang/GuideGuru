@@ -8,6 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <script>
+        function nextPage() {
+            var longitude = sessionStorage.getItem("longitude");
+            var latitude = sessionStorage.getItem("latitude");
+            var occassian = document.getElementById("occassian").value;
+            var interests = document.getElementById("interests").value;
+            var budget = document.getElementById("budget").value;
+            var radius = document.getElementById("radius").value;
+            window.location.href = `locations?occassian=${occassian}&interests=${interests}&budget=${budget}&radius=${radius}&longitude=${longitude}&latitude=${latitude}`;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -26,18 +37,6 @@
             <input type="text" id="interests">
         </div>
 
-        <div class="dropdown-section">
-            <label for="people">Total number of people:</label>
-            <select id="people">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6+">6+</option>
-            </select>
-        </div>
-
         <div class="input-section">
             <label for="budget">Budget:</lavel>
             <input type="number" id="budget">
@@ -47,7 +46,7 @@
             <input type="number" id="radius">
         </div>
         <button>Prev</button>
-        <button>Next</button>
+        <button onclick="nextPage()">Next</button>
     </div>
 </body>
 </html>

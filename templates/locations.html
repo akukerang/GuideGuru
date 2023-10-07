@@ -7,14 +7,24 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        {% for i in range(0,len) %}
-            <div class="locationBox">
-                <h1>{{ locationList[i].name }}</h1>
-                <p>{{ locationList[i].formatted_address }}</p>
-                <p>{{ locationList[i].price }}</p>
-                <p>{{ locationList[i].type }}</p>
+        <div results-page>
+            <div class="results-container">
+                {% for i in range(0, len) %}
+                    <div class="location-container">
+                        <div class="location-details">
+                            <h1>{{ locationList[i].name }}</h1>
+                            <p>{{ locationList[i].formatted_address }}</p>
+                            <p>{{ locationList[i].price }}</p>
+                            <p>{{ locationList[i].type }}</p>
+                            <input type="checkbox" class="location-box">
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-           
-        {% endfor %}
+            <div class="map2-container">
+                <div class="map" id="map"></div>
+            </div>
+        </div>
+        
     </body>
 </html>

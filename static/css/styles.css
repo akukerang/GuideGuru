@@ -14,6 +14,7 @@ header {
     color: white;
     padding: 10px 20px;
 }
+
 .form1-container {
     width: 90%;
     margin: 50px auto 100px auto;
@@ -87,4 +88,31 @@ select, input {
     border-radius: 10px;
     border: 1px solid #cccccc;
     text-align: center;
+}
+
+.location-container {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.results-container {
+    width: 40%;
+    display: block;
+}
+
+/* .results-page {
+    display: i;
+} */
+
+.map2-container {
+    display: inline-block;
+    width: 30%;
+    background-color: white;
+    height: 400px; /* Set the height of the map container */
+    border: 1px solid #ccc; /* Add a border around the map container */
+    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
 }

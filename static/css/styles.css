@@ -9,15 +9,10 @@ body {
     margin: 0;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-}
 
 .form1-container {
     width: 90%;
-    margin: 50px auto 100px auto;
+    margin: 5px auto auto auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,22 +51,26 @@ form {
 .search, button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
+    background-color: #5193ef;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.search:hover {
-    background-color: #45a049;
+.search:hover, button:hover {
+    background-color: #619aeb;
 }
 
 .container {
     padding: 30px;
-    background-color: #3F8EFC;
+    background-color: #70abff;
     border-radius: 10px;
+    width: 25%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -80,6 +79,8 @@ form {
 
 .dropdown-section, .input-section {
     margin-bottom: 10px;
+    color: white;
+    font-size: 30px;
 }
 
 select, input {
@@ -90,105 +91,4 @@ select, input {
     text-align: center;
 }
 
-.location-details > h1 {
-    font-size: 20px;
-}
-
-
-.results-page {
-    display: flex;
-    flex-direction: row;
-}
-
-.map2-container {
-    margin-top: 30px;
-    margin-right: 20px;
-    height: 40%;
-    width: 50%;
-    background-color: white;
-    height: 400px; /* Set the height of the map container */
-    border: 1px solid #ccc; /* Add a border around the map container */
-    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
-}
-
-.results-container {
-    width: 40%;
-    overflow-y: scroll;
-    max-height: 100vh;
-    flex: 2;
-    /* Set scrollbar styles */
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: #888888 #f1f1f1; /* For Firefox */
-}
-
-/* For Webkit browsers like Chrome and Safari */
-.results-container::-webkit-scrollbar {
-    width: 10px;
-}
-
-.results-container::-webkit-scrollbar-thumb {
-    background-color: #888888;
-}
-
-.results-container::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-}
-
-/* For IE and Edge */
-.results-container {
-    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-}
-
-.results-container::-ms-scrollbar-thumb {
-    background-color: #888888;
-}
-
-.results-container {
-    width: 60%; /* Adjusted width to leave some space on the right */
-    overflow-y: scroll;
-    max-height: 100vh;
-    flex: 2;
-    margin: 20px; /* Set margin to 20px */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-}
-
-.location-container {
-    width: 80%;
-    border-radius: 30px;
-    background-color: white;
-    display: flex;
-    margin-bottom: 20px;
-    flex-direction: row;
-    height: 250px;
-    align-items: center;
-    justify-content: space-between;
-    border-left-width: 10px; /* Left border width */
-    border-right-width: 10px; /* Right border width */
-    transition: all 0.3s ease; /* Add transition for a smooth effect */
-}
-
-.location-container:hover {
-    transform: scale(1.05); /* Scale up the container on hover */
-    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5); /* Add a subtle shadow on hover */
-}
-
-.location-details {
-    flex: 1;
-    margin: 20px;
-    width: 80%;
-}
-
-.location-details h1 {
-    font-size: 20px;
-}
-
-.location-box {
-    transform: scale(1); /* Reset the scale to 1 for normal size */
-    width: 30px; /* Set a specific width */
-    height: 30px; /* Set a specific height */
-    margin: 0 10px 0 0;
-}
 

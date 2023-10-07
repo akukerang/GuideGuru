@@ -33,7 +33,7 @@ def locations():
     budget = request.args.get('budget')
 
     interests = interests.split(", ")
-    gmaps = Client(key=config.API_KEY)
+    gmaps = Client(key=keys.API_KEY)
 
     for i in interests:
         places_data = gmaps.places(query=getQuery(occassion, i, budget), location=(latitude, longitude), radius=radius)['results']

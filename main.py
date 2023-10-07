@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-import config
+import keys
 import openai
 from googlemaps import places, Client
-api_key = config.API_KEY
+api_key = keys.google
 app = Flask(__name__, static_url_path='/static')
-openai.api_key = config.gptapi_key
+openai.api_key = keys.openai
 
 def getQuery(occassion, interests, budget):
     query = f"{occassion} occassian with interests in {interests} with a ${budget} budget near me"

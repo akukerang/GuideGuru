@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request
-import config
+import keys
 import openai
 from googlemaps import places, Client
-api_key = config.API_KEY
+google = keys.google
 app = Flask(__name__, static_url_path='/static')
-openai.api_key = config.gptapi_key
+openai = keys.openai
 
 def getQuery(occassion, interests, budget):
     query = f"{occassion} occassian with interests in {interests} with a ${budget} budget near me"
@@ -13,7 +13,7 @@ def getQuery(occassion, interests, budget):
 
 @app.route('/')
 def main():
-    return render_template('index.html',api_key = api_key)
+    return render_template('index.html',api_key = google)
 
 @app.route('/questions')
 def questions():
@@ -33,7 +33,7 @@ def locations():
     budget = request.args.get('budget')
 
     interests = interests.split(", ")
-    gmaps = Client(key=config.API_KEY)
+    gmaps = Client(key=google)
 
     for i in interests:
         places_data = gmaps.places(query=getQuery(occassion, i, budget), location=(latitude, longitude), radius=radius)['results']
@@ -43,10 +43,12 @@ def locations():
                     'name': place.get('name'),
                     'formatted_address': place.get('formatted_address'),
                     'price_level': place.get('price_level', None),
-                    'type': place.get('types', None)
+                    'type': place.get('types', None),
+                    'longitude':place.get('longitude'),
+                    'latitude' : place.get('latitude')
                 }
                 locationList.append(operational_place)
-    return render_template('locations.html', locationList = locationList, len=len(locationList))
+    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google)
 
 @app.route('/results')
 def results():

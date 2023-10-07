@@ -5,16 +5,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GuideGuru</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script>
+            var map;
+            function initMap() {
+                var longitude = parseFloat(sessionStorage.getItem("longitude"));
+                var latitude = parseFloat(sessionStorage.getItem("latitude"));
+                console.log(latitude, longitude);
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: latitude, lng: longitude },
+                    zoom: 12,
+                    streetViewControl: false,
+                    mapTypeControl: false
+                });
+                // {% for i in range(0, len) %}
+                //     var location = {
+                //         lat: {{ locationList[i].latitude }},
+                //         lng: {{ locationList[i].longitude }}
+                //     };
+                //     var marker = new google.maps.Marker({
+                //         position: location,
+                //         map: map,
+                //         title: {{ locationList[i].name }}
+                //     });
+                // {% endfor %} 
+
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
+
     </head>
     <body>
-        {% for i in range(0,len) %}
-            <div class="locationBox">
-                <h1>{{ locationList[i].name }}</h1>
-                <p>{{ locationList[i].formatted_address }}</p>
-                <p>{{ locationList[i].price }}</p>
-                <p>{{ locationList[i].type }}</p>
+        <div class ="results-page">
+            <div class="results-container">
+                {% for i in range(0, len) %}
+                    <div class="location-container">
+                        <div class="location-details">
+                            <h1>{{ locationList[i].name }}</h1>
+                            <p>{{ locationList[i].formatted_address }}</p>
+                            <p>{{ locationList[i].price }}</p>
+                            <p>{{ locationList[i].type }}</p>
+                        </div>
+                        <input type="checkbox" class="location-box">
+                    </div>
+                {% endfor %}
             </div>
-           
-        {% endfor %}
+            <div class="map2-container">
+                <div class="map" id="map"></div>
+            </div>
+        </div>
+        
     </body>
 </html>

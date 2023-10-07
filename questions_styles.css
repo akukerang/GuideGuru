@@ -1,0 +1,28 @@
+body {
+    font-family: 'Young Serif', serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #87BFFF;
+}
+
+.container {
+    padding: 30px;
+    background-color: #3F8EFC;
+    border-radius: 10px;
+}
+
+.dropdown-section, .input-section {
+    margin-bottom: 10px;
+}
+
+select, input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    text-align: center;
+}

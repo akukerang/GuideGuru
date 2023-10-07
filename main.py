@@ -3,7 +3,7 @@ import config
 import openai
 from googlemaps import places, Client
 api_key = config.API_KEY
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 openai.api_key = config.gptapi_key
 
 def getQuery(occassion, interests, budget):
@@ -46,7 +46,7 @@ def locations():
                     'type': place.get('types', None)
                 }
                 locationList.append(operational_place)
-    return render_template('locations.html', locationList = locationList)
+    return render_template('locations.html', locationList = locationList, len=len(locationList))
 
 @app.route('/results')
 def results():

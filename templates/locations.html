@@ -1,9 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GuideGuru</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        {{locationList}}
+        {% for i in range(0,len) %}
+            <div class="locationBox">
+                <h1>{{ locationList[i].name }}</h1>
+                <p>{{ locationList[i].formatted_address }}</p>
+                <p>{{ locationList[i].price }}</p>
+                <p>{{ locationList[i].type }}</p>
+            </div>
+           
+        {% endfor %}
     </body>
 </html>
-

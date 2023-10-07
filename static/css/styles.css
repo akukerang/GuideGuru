@@ -91,11 +91,13 @@ select, input {
 }
 
 .location-container {
+    width: 80%;
+    border-radius: 30px;
     background-color: white;
     display: flex;
     margin: 20px;
     flex-direction: row;
-    height: 300px;
+    height: 250px;
 }
 
 .location-details {
@@ -111,11 +113,12 @@ select, input {
 .location-box {
     transform: scale(0.3); /* Make the checkbox half the size */
     flex: 1; /* Adjust the flex value to control the space taken by the checkbox */
+    margin: 0;
+
 }
 
 .results-container {
-    width: 60%;
-    display: block;
+    width: 40%;
     overflow-y: scroll;
     max-height: 100vh;
     flex: 2;
@@ -131,8 +134,8 @@ select, input {
 .map2-container {
     margin-top: 30px;
     margin-right: 20px;
-    width: 40%;
     height: 40%;
+    width: 50%;
     background-color: white;
     height: 400px; /* Set the height of the map container */
     border: 1px solid #ccc; /* Add a border around the map container */

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuideGuru</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
+    <script>
+        function nextPage() {
+            var longitude = sessionStorage.getItem("longitude");
+            var latitude = sessionStorage.getItem("latitude");
+            var occassian = document.getElementById("occassian").value;
+            var interests = document.getElementById("interests").value;
+            var budget = document.getElementById("budget").value;
+            var radius = document.getElementById("radius").value;
+            window.location.href = `locations?occassian=${occassian}&interests=${interests}&budget=${budget}&radius=${radius}&longitude=${longitude}&latitude=${latitude}`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="dropdown-section">
+            <label for="occassian">Occassion:</label>
+            <select id="occassian">
+                <option value="romantic">Romantic</option>
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+                <option value="solo">Solo</option>
+            </select>
+        </div>
+        <div class="input-section">
+            <label for="interests">Interests:</lavel>
+            <input type="text" id="interests">
+        </div>
+
+        <div class="input-section">
+            <label for="budget">Budget:</lavel>
+            <input type="number" id="budget">
+        </div>
+        <div class="input-section">
+            <label for="radius">Radius:</lavel>
+            <input type="number" id="radius">
+        </div>
+        <button>Prev</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+</body>
+</html>

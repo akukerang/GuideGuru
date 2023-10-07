@@ -1,0 +1,58 @@
+* {
+    margin: 0
+}
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+}
+.form1-container {
+    width: 90%;
+    margin: 60px auto 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-container {
+    width: 80%; /* Set the width of the map container */
+    height: 500px; /* Set the height of the map container */
+    border: 1px solid #ccc; /* Add a border around the map container */
+    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
+}
+
+/* Optionally, you can style the map itself within the container */
+.map {
+    width: 100%; /* Set the width of the map */
+    height: 100%; /* Set the height of the map */
+    border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+#location {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+}
+
+.search {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search:hover {
+    background-color: #45a049;
+}

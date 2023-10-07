@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     </head>
     <body>
-        <div results-page>
+        <div class ="results-page">
             <div class="results-container">
                 {% for i in range(0, len) %}
                     <div class="location-container">
@@ -16,8 +16,8 @@
                             <p>{{ locationList[i].formatted_address }}</p>
                             <p>{{ locationList[i].price }}</p>
                             <p>{{ locationList[i].type }}</p>
-                            <input type="checkbox" class="location-box">
                         </div>
+                        <input type="checkbox" class="location-box">
                     </div>
                 {% endfor %}
             </div>

@@ -2,9 +2,9 @@ from flask import Flask, render_template, request
 import keys
 import openai
 from googlemaps import places, Client
-api_key = keys.google
+google = keys.google
 app = Flask(__name__, static_url_path='/static')
-openai.api_key = keys.openai
+openai = keys.openai
 
 def getQuery(occassion, interests, budget):
     query = f"{occassion} occassian with interests in {interests} with a ${budget} budget near me"
@@ -13,7 +13,7 @@ def getQuery(occassion, interests, budget):
 
 @app.route('/')
 def main():
-    return render_template('index.html',api_key = api_key)
+    return render_template('index.html',api_key = google)
 
 @app.route('/questions')
 def questions():
@@ -33,7 +33,7 @@ def locations():
     budget = request.args.get('budget')
 
     interests = interests.split(", ")
-    gmaps = Client(key=keys.api_key)
+    gmaps = Client(key=google)
 
     for i in interests:
         places_data = gmaps.places(query=getQuery(occassion, i, budget), location=(latitude, longitude), radius=radius)['results']

@@ -5,19 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>GuideGuru</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <!-- <script>
-            // let longitude = sessionStorage.getItem("longitude");
-            // let latitude = sessionStorage.getItem("latitude");
+        <script>
+            var map;
             function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: {longitude}, lng: {latitude} },
-                zoom: 8,
-                streetViewControl: false,
-                mapTypeControl: false
-            });
+                var longitude = parseFloat(sessionStorage.getItem("longitude"));
+                var latitude = parseFloat(sessionStorage.getItem("latitude"));
+                console.log(latitude, longitude);
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: latitude, lng: longitude },
+                    zoom: 12,
+                    streetViewControl: false,
+                    mapTypeControl: false
+                });
+                // {% for i in range(0, len) %}
+                //     var location = {
+                //         lat: {{ locationList[i].latitude }},
+                //         lng: {{ locationList[i].longitude }}
+                //     };
+                //     var marker = new google.maps.Marker({
+                //         position: location,
+                //         map: map,
+                //         title: {{ locationList[i].name }}
+                //     });
+                // {% endfor %} 
 
-        }
-        </script> -->
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
+
     </head>
     <body>
         <div class ="results-page">

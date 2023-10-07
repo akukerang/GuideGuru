@@ -43,10 +43,12 @@ def locations():
                     'name': place.get('name'),
                     'formatted_address': place.get('formatted_address'),
                     'price_level': place.get('price_level', None),
-                    'type': place.get('types', None)
+                    'type': place.get('types', None),
+                    'longitude':place.get('longitude'),
+                    'latitude' : place.get('latitude')
                 }
                 locationList.append(operational_place)
-    return render_template('locations.html', locationList = locationList, len=len(locationList))
+    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google)
 
 @app.route('/results')
 def results():

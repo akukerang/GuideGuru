@@ -3,6 +3,7 @@ import keys
 import openai
 from googlemaps import places, Client
 import pickle
+import json
 google = keys.google
 app = Flask(__name__, static_url_path='/static')
 openai.api_key = keys.openaiKey
@@ -40,16 +41,20 @@ def locations():
     for i in interests:
         places_data = gmaps.places(query=getQuery(occassion, i, budget), location=(latitude, longitude), radius=radius)['results']
         for place in places_data:
-            if place.get('business_status') == 'OPERATIONAL':
+            if place.get('business_status') == 'OPERATIONAL' and place.get('photos'):
+                photo_reference = place.get('photos')[0].get('photo_reference')
+                photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={google}"
                 operational_place = {
                     'name': place.get('name'),
                     'formatted_address': place.get('formatted_address'),
                     'price_level': place.get('price_level', None),
                     'type': place.get('types', None),
                     'location':place.get('geometry')['location'],
-                    'photo':place.get('photos')[0]['photo_reference']
+                    'photo':place.get('photos')[0]['photo_reference'],
+                    'photo_url': photo_url
                 }
                 locationList.append(operational_place)
+    location_list_json = json.dumps(locationList)
     markers = ""
     for i in locationList:
         markers+= f"""
@@ -61,7 +66,7 @@ def locations():
                 markers.push(marker);
             """
     save_data_to_file(locationList)
-    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google, markers=markers)
+    return render_template('locations.html', locationList = locationList, len=len(locationList), api_key = google, markers=markers, locationListJson=location_list_json)
 
 @app.route('/results/')
 def results():

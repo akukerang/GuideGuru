@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
     <script>
-        document.getElementById('loadingOverlay').style.display = 'none';
         function nextPage() {
             var longitude = sessionStorage.getItem("longitude");
             var latitude = sessionStorage.getItem("latitude");
@@ -17,15 +16,11 @@
             var interests = document.getElementById("interests").value;
             var budget = document.getElementById("budget").value;
             var radius = document.getElementById("radius").value;
-            document.getElementById('loadingOverlay').style.display = 'flex';
             window.location.href = `locations?occassian=${occassian}&interests=${interests}&budget=${budget}&radius=${radius}&longitude=${longitude}&latitude=${latitude}`;
         }
     </script>
 </head>
 <body>
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner"></div>
-    </div>
     <h1>Customize your experience</h1>
     <div class="container">
         <div class="dropdown-section">
@@ -50,8 +45,10 @@
             <label for="radius">Radius:</lavel>
             <input type="number" id="radius">
         </div>
-        <button>Prev</button>
-        <button onclick="nextPage()">Next</button>
+        <div class="button-container">
+            <button>Prev</button>
+            <button onclick="nextPage()">Next</button>
+        </div>
     </div>
 </body>
 </html>

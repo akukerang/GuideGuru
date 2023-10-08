@@ -4,6 +4,7 @@ import openai
 from googlemaps import places, Client
 import pickle
 import json
+import markdown
 google = keys.google
 app = Flask(__name__, static_url_path='/static')
 openai.api_key = keys.openaiKey
@@ -82,8 +83,12 @@ def results():
                 "price": locationList[int(i)]['price_level'],
             }
             chosen_locations.append(chosen)
+    #response = planDay(session.get('query'), chosen_locations)
+    #return render_template('results.html', response=response)
     response = planDay(session.get('query'), chosen_locations)
-    return render_template('results.html', response=response)
+    formatted_response = markdown.markdown(response)
+    print(formatted_response)
+    return render_template('results.html', response=formatted_response)
 
 
 def load_data_from_file():
@@ -99,9 +104,9 @@ def save_data_to_file(location_dict):
     with open('location_data.pkl', 'wb') as file:
         pickle.dump(location_dict, file)
 
-
+#old prompt = "Plan me a day where I have a "+query+" and these are my list of locations" + str(locations) + ". Try to keep the response simple and keep them in a numbered list format. And be optimistic."
 def planDay(query, locations):
-    prompt = "Plan me a day where I have a "+query+" and these are my list of locations" + str(locations)
+    prompt = "Create a delightful day plan for me using this information: "+query+ ". Use my location interests, "+str(locations) + ". Provide a list of these locations with very concise and simple descriptions. Then, plan my day using these locations. Be creative and optimistic in your suggestions. Present the plan as a numbered list of activities. Return the response in markdown"
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
     max_tokens=300,
@@ -110,9 +115,8 @@ def planDay(query, locations):
         {"role": "user", "content" :  prompt},
     ]
     )
-    return response["choices"][0]["message"]["content"]
-
-
+    markdown_content = response["choices"][0]["message"]["content"]
+    return markdown_content
 app.run()
 
 

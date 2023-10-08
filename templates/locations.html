@@ -37,6 +37,19 @@
             addMarkers();
         }
 
+        function sendChecked() {
+            var checkedIndices = [];
+
+            // Get indices of checked checkboxes
+            document.querySelectorAll('.location-box:checked').forEach(function (checkbox) {
+                console.log(checkbox.value);
+                checkedIndices.push(parseInt(checkbox.value));
+            });
+            var indexesString = checkedIndices.join(',');
+            window.location.href = `/results?indexes=${indexesString}`
+
+
+        }
 
     </script>
     <script>
@@ -66,12 +79,19 @@
                     <p>{{ locationList[i].type }}</p>
                     <p>{{locationList[i].photo}}</p>
                 </div>
+<<<<<<< HEAD
                 <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="unchecked">
             </div>\
+=======
+                <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="{{i}}">
+            </div>
+>>>>>>> fb8f0f4afa8a5a578a5c309fce854113722505f8
             {% endfor %}
         </div>
         <div class="map2-container">
             <div class="map" id="map"></div>
+            <button onclick="sendChecked()">Send Checked</button>
+
         </div>
     </div>
 

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
 
     <script>
+        document.getElementById('loadingOverlay').style.display = 'none';
         var map;
         var markers = [];
         function addMarkers() {
@@ -49,6 +50,8 @@
                 console.log(checkbox.value);
                 checkedIndices.push(parseInt(checkbox.value));
             });
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
             var indexesString = checkedIndices.join(',');
             window.location.href = `/results?indexes=${indexesString}`
         }
@@ -74,6 +77,9 @@
                 <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="{{i}}">
             </div>
             {% endfor %}
+        </div>
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
         </div>
         <div class="map2-container">
             <div class="map" id="map"></div>
@@ -127,6 +133,7 @@
                 }
             });
         });
+
     </script>
 </body>
 

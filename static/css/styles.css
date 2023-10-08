@@ -242,3 +242,7 @@ h1 {
 .map2-container > button {
     margin-top: 10px;
 }
+
+.error {
+    color: rgb(219, 0, 0);
+}

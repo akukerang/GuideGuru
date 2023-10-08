@@ -6,12 +6,14 @@ KnightHack 2023, AI excursion planner based of interests and occasion
 - Google Maps API Key
 - OpenAI API Key
 ## Usage
-- Create `keys.py`, and enter `openaikey = "SECRET KEY HERE"` and `google = "SECRET KEY HERE"`
+- Create file `keys.py`, and enter variables `openaiKey = "SECRET KEY HERE"` and `google = "SECRET KEY HERE"`
 - Run main.py
 - Go to link http://127.0.0.1:5000
 ## How to Use
 1. Enter a location of interest or current location country, state, city, and/or zip code ➞ click [<kbd> <br> Search <br> </kbd>][KBD] ➞ click [<kbd> <br> Next <br> </kbd>][KBD] 
-2. Fill out the form according to interest
+2. Fill out the form 
+    - Seperate interests by with a comma and space
+    - Ex. Food, Hiking, Nature
 3. Select 3 activites/locations ➞ wait for response
 4. Enjoy response
 5. Option to create [<kbd> <br> New Plan <br> </kbd>][KBD]

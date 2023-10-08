@@ -47,22 +47,10 @@
             });
             var indexesString = checkedIndices.join(',');
             window.location.href = `/results?indexes=${indexesString}`
-
-
         }
 
     </script>
-    <script>
-        locationList = {{ locationListJson | safe }}
-        console.log(locationList);
 
-        var checkboxes = document.querySelectorAll('.location-box');
-
-        for(var i =0; i < checkboxes.length; i++) {
-            console.log(checkboxes[i].getAttribute('data-index'))
-        }
-
-    </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
 
 </head>
@@ -84,10 +72,43 @@
         <div class="map2-container">
             <div class="map" id="map"></div>
             <button onclick="sendChecked()">Send Checked</button>
+            <div class="image-container">
 
+            </div>
         </div>
     </div>
+   <script>
+        locationList = {{ locationListJson | safe }};
+        console.log(locationList);
 
+        var checkboxes = document.querySelectorAll('.location-box');
+        var imageContainer = document.querySelector('.image-container');
+
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                var index = this.getAttribute('value');
+                if (this.checked) {
+                    var imageUrl = locationList[index].photo_url; // Retrieve the image URL from the locationList
+                    console.log("Image URL:", imageUrl);
+
+                    // Create an image element
+                    var image = document.createElement('img');
+                    image.className = "image" + index;
+                    image.src = imageUrl;
+
+                    // Append the image to the image container
+                    imageContainer.appendChild(image);
+                } else {
+                    // Remove the image if the checkbox is unchecked
+                    var existingImage = document.querySelector(".image" + index);
+                    if (existingImage) {
+                        existingImage.remove();
+                    }
+                    console.log("Checkbox unchecked");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

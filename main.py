@@ -99,7 +99,7 @@ def planDay(query, locations):
     prompt = "Plan me a day where I have a "+query+" and these are my list of locations" + str(locations)
     response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo", 
-    max_tokens=200,
+    max_tokens=300,
     messages = [
         {"role": "system", "content" : "You give a plan for a day with an occassian and a list of locations."},
         {"role": "user", "content" :  prompt},

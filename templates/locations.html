@@ -76,16 +76,9 @@
                     <h1>{{ locationList[i].name }}</h1>
                     <p>{{ locationList[i].formatted_address }}</p>
                     <p>{{ locationList[i].price }}</p>
-                    <p>{{ locationList[i].type }}</p>
-                    <p>{{locationList[i].photo}}</p>
                 </div>
-<<<<<<< HEAD
-                <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="unchecked">
-            </div>\
-=======
                 <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="{{i}}">
             </div>
->>>>>>> fb8f0f4afa8a5a578a5c309fce854113722505f8
             {% endfor %}
         </div>
         <div class="map2-container">

@@ -246,3 +246,6 @@ h1 {
     z-index: 1; /* Move the hovered image to the top layer */
 }
 
+.map2-container > button {
+    padding-top: 10px;
+}

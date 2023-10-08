@@ -39,6 +39,17 @@
 
 
     </script>
+    <script>
+        locationList = {{ locationListJson | safe }}
+        console.log(locationList);
+
+        var checkboxes = document.querySelectorAll('.location-box');
+
+        for(var i =0; i < checkboxes.length; i++) {
+            console.log(checkboxes[i].getAttribute('data-index'))
+        }
+
+    </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key={{api_key}}&callback=initMap"></script>
 
 </head>
@@ -56,7 +67,7 @@
                     <p>{{locationList[i].photo}}</p>
                 </div>
                 <input type="checkbox" class="location-box" onchange="toggleMarker({{ i }})" value="unchecked">
-            </div>
+            </div>\
             {% endfor %}
         </div>
         <div class="map2-container">
